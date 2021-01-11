@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Restaurant.Models.Plats>
+@{
+    ViewData["Title"] = "Carte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center cont">
+    <h1 class="display-4">Carte</h1>
+    <p>Voici notre carte</p>
+    <a href="Carte?id=1"><button class="btn-secondary">Entrée</button></a>
+    <a href="Carte?id=2"><button class="btn-secondary">Plat</button></a>
+    <a href="Carte?id=3"><button class="btn-secondary">Dessert</button></a>
+    <a href="Carte"><button class="btn-secondary">Tout</button></a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Catégorie</th>
+        </tr>   
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    @Html.DisplayTextFor(modelItem => item.idPlat)
+                </th>
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.nomPlat)
+                </td>
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.prixPlat)
+                </td>
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.catPlat.libCat)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
